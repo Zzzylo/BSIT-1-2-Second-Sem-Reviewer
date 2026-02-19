@@ -1,205 +1,93 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Press Start 2P", cursive;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: white;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 30px;
-  overflow: hidden;
-  position: relative;
-
-  /* RPG SKY BASE */
-  background: linear-gradient(to bottom, #cfefff 0%, #fff3df 80%);
+  padding: 40px 20px;
 }
 
-/* ===== CLOUD LAYER 1 (SLOW BIG CLOUDS) ===== */
-body::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background-image: url("https://www.transparenttextures.com/patterns/cloudy-day.png");
-  background-repeat: repeat-x;
-  background-size: 900px;
-
-  opacity: 0.4;
-  z-index: 0;
-
-  animation: cloudsSlow 50s linear infinite;
-}
-
-/* ===== CLOUD LAYER 2 (FASTER CLOUDS) ===== */
-.cloud-layer {
-  position: absolute;
-  inset: 0;
-
-  background-image: url("https://www.transparenttextures.com/patterns/white-diamond.png");
-  background-repeat: repeat;
-  background-size: 250px;
-
-  opacity: 0.12;
-  z-index: 1;
-
-  animation: cloudsFast 18s linear infinite;
-}
-
-/* ===== BAMBOO GROUND LAYER ===== */
-.ground {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 220px;
-
-  background: url("https://www.transparenttextures.com/patterns/green-fibers.png");
-  background-repeat: repeat;
-  background-size: 350px;
-
-  opacity: 0.85;
-  z-index: 2;
-
-  border-top: 4px solid #3b2f2f;
-}
-
-/* ===== PANDA SPRITE ===== */
-.panda {
-  position: absolute;
-  bottom: 60px;
-  left: -200px;
-  width: 120px;
-  height: 120px;
-
-  background: url("https://i.imgur.com/3KXnZzO.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-
-  z-index: 3;
-  image-rendering: pixelated;
-
-  animation: pandaWalk 25s linear infinite;
-}
-
-/* ===== MAIN BOX ===== */
 .container {
   width: 100%;
-  max-width: 700px;
-  padding: 40px 30px;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.5);
+}
 
-  background: rgba(255, 246, 227, 0.92);
-  border: 4px solid #3b2f2f;
-  box-shadow: 8px 8px 0px #3b2f2f;
-
+h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
   text-align: center;
-  position: relative;
-  z-index: 5;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, #38bdf8, #a78bfa, #f472b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* TITLE */
-.container h1 {
-  font-size: 1.4rem;
-  margin-bottom: 20px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #3b2f2f;
+p {
+  text-align: center;
+  font-size: 1rem;
+  opacity: 0.8;
+  margin-bottom: 35px;
 }
 
-/* DESCRIPTION */
-.container p {
-  font-size: 0.65rem;
-  line-height: 1.8;
-  margin-bottom: 30px;
-  color: #5a4a42;
-}
-
-/* LIST */
-.container ul {
+ul {
   list-style: none;
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 15px;
 }
 
-/* LINKS */
-.container ul li a {
+ul li a {
   display: block;
-  padding: 18px 15px;
-
-  font-size: 0.7rem;
   text-decoration: none;
-  color: #3b2f2f;
-
-  background: #fbe8c8;
-  border: 3px solid #3b2f2f;
-  box-shadow: 5px 5px 0px #3b2f2f;
-
-  transition: 0.2s;
+  padding: 15px 20px;
+  border-radius: 15px;
+  font-weight: 600;
+  font-size: 1rem;
+  color: white;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: 0.3s ease;
 }
 
-.container ul li a:hover {
-  transform: translate(3px, 3px);
-  box-shadow: 2px 2px 0px #3b2f2f;
-  background: #ffe1b3;
+ul li a:hover {
+  transform: translateY(-4px) scale(1.02);
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.5);
+  box-shadow: 0px 0px 15px rgba(56, 189, 248, 0.4);
 }
 
-.container ul li a:active {
-  transform: translate(6px, 6px);
-  box-shadow: 0px 0px 0px #3b2f2f;
+ul li a:active {
+  transform: scale(0.98);
 }
 
-/* ===== ANIMATIONS ===== */
-
-@keyframes cloudsSlow {
-  from {
-    background-position: 0 50px;
-  }
-  to {
-    background-position: -2500px 50px;
-  }
-}
-
-@keyframes cloudsFast {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: -1000px 0;
-  }
-}
-
-@keyframes pandaWalk {
-  from {
-    left: -200px;
-  }
-  to {
-    left: 110%;
-  }
-}
-
-/* RESPONSIVE */
+/* Responsive */
 @media (max-width: 600px) {
   .container {
-    padding: 30px 20px;
+    padding: 25px;
   }
 
-  .container h1 {
-    font-size: 1.1rem;
+  h1 {
+    font-size: 2rem;
   }
 
-  .container ul li a {
-    font-size: 0.6rem;
-    padding: 15px 12px;
-  }
-
-  .panda {
-    width: 90px;
-    height: 90px;
+  ul li a {
+    font-size: 0.95rem;
+    padding: 12px 15px;
   }
 }
