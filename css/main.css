@@ -14,9 +14,23 @@ body {
   align-items: center;
   padding: 30px;
 
-  background-color: #f5f0e6;
-  background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+  /* PIXEL BACKGROUND */
+  background: url("https://i.pinimg.com/originals/0b/59/9b/0b599b5b548bb9c2aaf7f11dcdcb7c62.gif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   color: #3b2f2f;
+  position: relative;
+}
+
+/* SOFT OVERLAY (makes text readable) */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 245, 230, 0.75);
+  z-index: 0;
 }
 
 /* MAIN BOX */
@@ -25,13 +39,14 @@ body {
   max-width: 700px;
   padding: 40px 30px;
 
-  background: #fff6e3;
+  background: rgba(255, 246, 227, 0.92);
   border: 4px solid #3b2f2f;
-  border-radius: 0px;
 
   box-shadow: 8px 8px 0px #3b2f2f;
-
   text-align: center;
+
+  position: relative;
+  z-index: 2;
 }
 
 /* TITLE */
